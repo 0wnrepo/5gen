@@ -1,0 +1,6 @@
+[submodule "obfuscation"]
+	path = obfuscation
+	url = https://github.com/amaloz/obfuscation
+[submodule "gghlite-flint"]
+	path = gghlite-flint
+	url = https://github.com/amaloz/gghlite-flint
