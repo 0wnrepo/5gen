@@ -29,6 +29,7 @@ cd clt13
 cd ..
 
 cd gghlite-flint
+    git submodule init
     git submodule update
     autoreconf -i
     ./configure --prefix=$builddir
