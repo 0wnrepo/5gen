@@ -44,5 +44,6 @@ cd obfuscation
     ./configure --prefix=$builddir
     make
     make install
+    export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$builddir/lib"
     python2 setup.py test
 cd ..
