@@ -1,8 +1,10 @@
-# abort if any command fails
+#abort if any command fails
 set -e
 
-git submodule init
-git submodule update
+git clone https://github.com/amaloz/gghlite-flint.git
+git clone https://github.com/amaloz/obfuscation.git
+git clone https://github.com/spaceships/libaesrand.git
+git clone https://github.com/spaceships/clt13.git
 
 mkdir -p build
 builddir=$(realpath build)
