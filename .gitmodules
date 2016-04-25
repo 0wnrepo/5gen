@@ -4,3 +4,9 @@
 [submodule "gghlite-flint"]
 	path = gghlite-flint
 	url = https://github.com/amaloz/gghlite-flint
+[submodule "clt13"]
+	path = clt13
+	url = https://github.com/spaceships/clt13.git
+[submodule "libaesrand"]
+	path = libaesrand
+	url = https://github.com/spaceships/libaesrand.git
