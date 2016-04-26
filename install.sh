@@ -1,10 +1,8 @@
 #abort if any command fails
 set -e
 
-git clone https://github.com/amaloz/gghlite-flint.git
-git clone https://github.com/amaloz/obfuscation.git
-git clone https://github.com/spaceships/libaesrand.git
-git clone https://github.com/spaceships/clt13.git
+git submodule init
+git submodule update
 
 mkdir -p build
 builddir=$(realpath build)
