@@ -10,3 +10,9 @@
 [submodule "obfuscation"]
 	path = obfuscation
 	url = https://github.com/amaloz/obfuscation.git
+[submodule "libmmap"]
+	path = libmmap
+	url = https://github.com/amaloz/libmmap
+[submodule "mife"]
+	path = mife
+	url = https://github.com/amaloz/mife
