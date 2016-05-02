@@ -5,6 +5,7 @@ set -e
 
 git submodule init
 git submodule update
+git submodule foreach git pull origin master
 
 mkdir -p build
 builddir=$(realpath build)
@@ -40,6 +41,7 @@ cd gghlite-flint
     make install
 cd ..
 
+echo building libmmap
 cd libmmap
     autoreconf -i
     ./configure --prefix=$builddir
@@ -47,6 +49,7 @@ cd libmmap
     make install
 cd ..
 
+echo building mife
 cd mife
     git submodule init
     git submodule update
@@ -59,6 +62,7 @@ cd mife
     make install
 cd ..
 
+echo building obfuscation
 cd obfuscation
     autoreconf -i
     ./configure --prefix=$builddir
