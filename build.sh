@@ -8,7 +8,7 @@ git submodule update
 git submodule foreach git pull origin master
 
 mkdir -p build
-builddir=$(realpath build)
+builddir=$(readlink -f build)
 
 export CPPFLAGS=-I$builddir/include
 export CFLAGS=-I$builddir/include
