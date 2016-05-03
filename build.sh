@@ -19,6 +19,7 @@ echo builddir = $builddir
 
 echo building libaesrand
 cd libaesrand
+    autoreconf -i
     ./configure --prefix=$builddir
     make
     make install
