@@ -6,6 +6,9 @@ DIR="obf-experiments"
 CIRCUIT_DIR="$DIR/circuits"
 LOG_DIR="$DIR/runs"
 
+TIME=`date +"%F__%H-%M-%S"`
+mkdir -p "$LOG_DIR/point-$TIME"
+
 #
 # Change below as needed
 #
@@ -26,7 +29,7 @@ for secparam in $SECPARAMS; do
             echo "**** circuit: $circuit"
             for mmap in CLT GGH; do
                 echo "****** multilinear map: $mmap"
-                dir="$LOG_DIR/point/$secparam/$point/$circuit/$mmap"
+                dir="$LOG_DIR/point-$TIME/$secparam/$point/$circuit/$mmap"
                 mkdir -p $dir
                 obf=$circuit.obf.$secparam
                 eval=`python -c "print('0' * $point)"`
