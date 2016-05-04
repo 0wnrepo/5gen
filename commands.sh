@@ -30,3 +30,8 @@ git clone https://github.com/kevinlewi/mmap-experiments.git
 
 cd mmap-experiments
 ./build.sh
+
+# set up ore-experiments
+cp build/bin/keygen ore-experiments/
+cp build/bin/encrypt ore-experiments/
+cp build/bin/eval ore-experiments/
