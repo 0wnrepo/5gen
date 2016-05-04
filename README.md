@@ -1,6 +1,6 @@
 # mmap-experiments
 
-Repository for building and running experiments on the multilinear map applications of ORE and obfuscation.
+Repository for building and running experiments on the multilinear map applications of multi-input functional encryption and obfuscation.
 
 ## Instructions
 
@@ -24,5 +24,6 @@ TODO
 
 To run the obfuscation experiments, run the following.
 ```
-obf-experiments/point.sh
+obf-experiments/point-sz.sh
+obf-experiments/point-zimmerman.sh
 ````
