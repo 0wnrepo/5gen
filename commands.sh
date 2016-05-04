@@ -21,7 +21,7 @@ tar xvf flint-2.5.2.tar.gz
 
 cd flint-2.5.2
 ./configure
-make
+make -j
 make install
 ldconfig
 
