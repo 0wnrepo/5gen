@@ -6,15 +6,20 @@ DIR="obf-experiments"
 CIRCUIT_DIR="$DIR/circuits"
 LOG_DIR="$DIR/runs"
 
+#
+# Change below as needed
+#
+
+###########################
+SECPARAMS="8 16"
 MIN=8
 MAX=16
 INC=4
+###########################
 
 echo "* Running point functions ($MIN -> $MAX)"
 
-secparams=16
-
-for secparam in $secparams; do
+for secparam in $SECPARAMS; do
     echo "** security parameter: $secparam"
     for point in `seq $MIN $INC $MAX`; do
         for circuit in "point-$point.circ" "point-$point.json"; do
