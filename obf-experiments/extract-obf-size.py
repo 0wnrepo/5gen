@@ -10,7 +10,7 @@ def main(argv):
         sys.exit(1)
     dir = argv[1]
     size = utils.obfsize('%s/obf-size.log' % dir)
-    print('Size: %.2f (MB)' % round(size / 2 ** 20, 2))
+    print('Size: %.2f MB' % round(size / 2 ** 20, 2))
 
 if __name__ == '__main__':
     try:

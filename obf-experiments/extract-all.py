@@ -14,7 +14,7 @@ def main(argv):
     dir = argv[1]
     utils.obftime('%s/obf-time.log' % dir)
     size = utils.obfsize('%s/obf-size.log' % dir)
-    print('Size: %.2f (MB)' % round(size / 2 ** 20, 2))
+    print('Size:      %.2f MB' % round(size / 2 ** 20, 2))
     time = utils.evaltime('%s/eval-time.log' % dir)
     print('Eval Time: %.2f s' % round(time, 2))
 

@@ -15,16 +15,16 @@ def obftime(fname):
                 mmap = True
             elif line.startswith('Generating p_i'):
                 r = extract(line)
-                print('p_i/g_i: %.2f s' % round(r, 2))
+                print('    p_i/g_i: %.2f s' % round(r, 2))
             elif line.startswith('Generating CRT'):
                 r = extract(line)
-                print('CRT: %.2f s' % round(r, 2))
+                print('    CRT:     %.2f s' % round(r, 2))
             elif line.startswith('Generating z_i'):
                 r = extract(line)
-                print('z_i: %.2f s' % round(r, 2))
+                print('    z_i:     %.2f s' % round(r, 2))
             elif line.startswith('Generating pzt'):
                 r = extract(line)
-                print('pzt: %.2f s' % round(r, 2))
+                print('    pzt:     %.2f s' % round(r, 2))
             elif line.startswith('Took') and mmap:
                 r = extract(line)
                 print('Mmap Time: %.2f s' % round(r, 2))
