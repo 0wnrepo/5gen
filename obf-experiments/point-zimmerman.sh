@@ -4,7 +4,7 @@ set -e
 BIN="build/bin/run-obfuscator"
 DIR="obf-experiments"
 CIRCUIT_DIR="$DIR/circuits"
-LOG_DIR="$DIR/runs"
+LOG_DIR="$DIR/results"
 
 TIME=`date +"%F__%H-%M-%S"`
 mkdir -p "$LOG_DIR/point-$TIME"
