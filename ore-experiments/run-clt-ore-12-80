@@ -7,7 +7,7 @@ LENGTH=18
 cp samples/base-$BASE-length-$LENGTH-3-output-compressed-ore.json public/template.json
 
 date
-./keygen -s $LAMBDA -n -C 8
+./keygen -s $LAMBDA -n 8 -C
 date
 ./ore_encrypt -i 1 -C $BASE $LENGTH 11
 date
