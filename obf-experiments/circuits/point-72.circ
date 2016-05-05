@@ -1,0 +1,224 @@
+: nins 72
+: depth 8
+# TEST 101001110011010101011100101100011100011010011000010111010001101110011011 1
+# TEST 100001000110010000011000000001011111000111111111010110110111011110000110 0
+# TEST 100100101110001011100111101101101001101101101000110001011100101100100010 0
+# TEST 010110011011011111101110101110101101111010111110110011000001000010111010 0
+# TEST 011101110011111111010010101100100101011100010110000110010011100100101011 0
+# TEST 101111100000000000000110110000111101111000010010101000101111111001111010 0
+0 input
+1 input
+2 input
+3 input
+4 input
+5 input
+6 input
+7 input
+8 input
+9 input
+10 input
+11 input
+12 input
+13 input
+14 input
+15 input
+16 input
+17 input
+18 input
+19 input
+20 input
+21 input
+22 input
+23 input
+24 input
+25 input
+26 input
+27 input
+28 input
+29 input
+30 input
+31 input
+32 input
+33 input
+34 input
+35 input
+36 input
+37 input
+38 input
+39 input
+40 input
+41 input
+42 input
+43 input
+44 input
+45 input
+46 input
+47 input
+48 input
+49 input
+50 input
+51 input
+52 input
+53 input
+54 input
+55 input
+56 input
+57 input
+58 input
+59 input
+60 input
+61 input
+62 input
+63 input
+64 input
+65 input
+66 input
+67 input
+68 input
+69 input
+70 input
+71 input
+72 gate NOT 0
+73 gate ID 1
+74 gate NOT 2
+75 gate ID 3
+76 gate ID 4
+77 gate NOT 5
+78 gate NOT 6
+79 gate NOT 7
+80 gate ID 8
+81 gate ID 9
+82 gate NOT 10
+83 gate NOT 11
+84 gate ID 12
+85 gate NOT 13
+86 gate ID 14
+87 gate NOT 15
+88 gate ID 16
+89 gate NOT 17
+90 gate ID 18
+91 gate NOT 19
+92 gate NOT 20
+93 gate NOT 21
+94 gate ID 22
+95 gate ID 23
+96 gate NOT 24
+97 gate ID 25
+98 gate NOT 26
+99 gate NOT 27
+100 gate ID 28
+101 gate ID 29
+102 gate ID 30
+103 gate NOT 31
+104 gate NOT 32
+105 gate NOT 33
+106 gate ID 34
+107 gate ID 35
+108 gate ID 36
+109 gate NOT 37
+110 gate NOT 38
+111 gate ID 39
+112 gate NOT 40
+113 gate ID 41
+114 gate ID 42
+115 gate NOT 43
+116 gate NOT 44
+117 gate ID 45
+118 gate ID 46
+119 gate ID 47
+120 gate ID 48
+121 gate NOT 49
+122 gate ID 50
+123 gate NOT 51
+124 gate NOT 52
+125 gate NOT 53
+126 gate ID 54
+127 gate NOT 55
+128 gate ID 56
+129 gate ID 57
+130 gate ID 58
+131 gate NOT 59
+132 gate NOT 60
+133 gate ID 61
+134 gate NOT 62
+135 gate NOT 63
+136 gate NOT 64
+137 gate ID 65
+138 gate ID 66
+139 gate NOT 67
+140 gate NOT 68
+141 gate ID 69
+142 gate NOT 70
+143 gate NOT 71
+144 gate OR 72 73
+145 gate OR 74 75
+146 gate OR 76 77
+147 gate OR 78 79
+148 gate OR 80 81
+149 gate OR 82 83
+150 gate OR 84 85
+151 gate OR 86 87
+152 gate OR 88 89
+153 gate OR 90 91
+154 gate OR 92 93
+155 gate OR 94 95
+156 gate OR 96 97
+157 gate OR 98 99
+158 gate OR 100 101
+159 gate OR 102 103
+160 gate OR 104 105
+161 gate OR 106 107
+162 gate OR 108 109
+163 gate OR 110 111
+164 gate OR 112 113
+165 gate OR 114 115
+166 gate OR 116 117
+167 gate OR 118 119
+168 gate OR 120 121
+169 gate OR 122 123
+170 gate OR 124 125
+171 gate OR 126 127
+172 gate OR 128 129
+173 gate OR 130 131
+174 gate OR 132 133
+175 gate OR 134 135
+176 gate OR 136 137
+177 gate OR 138 139
+178 gate OR 140 141
+179 gate OR 142 143
+180 gate OR 144 145
+181 gate OR 146 147
+182 gate OR 148 149
+183 gate OR 150 151
+184 gate OR 152 153
+185 gate OR 154 155
+186 gate OR 156 157
+187 gate OR 158 159
+188 gate OR 160 161
+189 gate OR 162 163
+190 gate OR 164 165
+191 gate OR 166 167
+192 gate OR 168 169
+193 gate OR 170 171
+194 gate OR 172 173
+195 gate OR 174 175
+196 gate OR 176 177
+197 gate OR 178 179
+198 gate OR 180 181
+199 gate OR 182 183
+200 gate OR 184 185
+201 gate OR 186 187
+202 gate OR 188 189
+203 gate OR 190 191
+204 gate OR 192 193
+205 gate OR 194 195
+206 gate OR 196 197
+207 gate OR 198 199
+208 gate OR 200 201
+209 gate OR 202 203
+210 gate OR 204 205
+211 gate OR 207 208
+212 gate OR 209 210
+213 gate OR 211 212
+214 gate OR 213 206
+215 output NOT 214

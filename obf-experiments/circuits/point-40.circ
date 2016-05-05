@@ -1,0 +1,128 @@
+: nins 40
+: depth 7
+# TEST 0111001111011000100110011101101010111010 1
+# TEST 0100000011110010100011100100010011000001 0
+# TEST 0010000111101010010100101010110110001010 0
+# TEST 1100100110000110001101101101001101101010 0
+# TEST 1000110100001001110101111110011111111111 0
+# TEST 0000100011001000110010100011011011000011 0
+0 input
+1 input
+2 input
+3 input
+4 input
+5 input
+6 input
+7 input
+8 input
+9 input
+10 input
+11 input
+12 input
+13 input
+14 input
+15 input
+16 input
+17 input
+18 input
+19 input
+20 input
+21 input
+22 input
+23 input
+24 input
+25 input
+26 input
+27 input
+28 input
+29 input
+30 input
+31 input
+32 input
+33 input
+34 input
+35 input
+36 input
+37 input
+38 input
+39 input
+40 gate ID 0
+41 gate NOT 1
+42 gate NOT 2
+43 gate NOT 3
+44 gate ID 4
+45 gate ID 5
+46 gate NOT 6
+47 gate NOT 7
+48 gate NOT 8
+49 gate NOT 9
+50 gate ID 10
+51 gate NOT 11
+52 gate NOT 12
+53 gate ID 13
+54 gate ID 14
+55 gate ID 15
+56 gate NOT 16
+57 gate ID 17
+58 gate ID 18
+59 gate NOT 19
+60 gate NOT 20
+61 gate ID 21
+62 gate ID 22
+63 gate NOT 23
+64 gate NOT 24
+65 gate NOT 25
+66 gate ID 26
+67 gate NOT 27
+68 gate NOT 28
+69 gate ID 29
+70 gate NOT 30
+71 gate ID 31
+72 gate NOT 32
+73 gate ID 33
+74 gate NOT 34
+75 gate NOT 35
+76 gate NOT 36
+77 gate ID 37
+78 gate NOT 38
+79 gate ID 39
+80 gate OR 40 41
+81 gate OR 42 43
+82 gate OR 44 45
+83 gate OR 46 47
+84 gate OR 48 49
+85 gate OR 50 51
+86 gate OR 52 53
+87 gate OR 54 55
+88 gate OR 56 57
+89 gate OR 58 59
+90 gate OR 60 61
+91 gate OR 62 63
+92 gate OR 64 65
+93 gate OR 66 67
+94 gate OR 68 69
+95 gate OR 70 71
+96 gate OR 72 73
+97 gate OR 74 75
+98 gate OR 76 77
+99 gate OR 78 79
+100 gate OR 80 81
+101 gate OR 82 83
+102 gate OR 84 85
+103 gate OR 86 87
+104 gate OR 88 89
+105 gate OR 90 91
+106 gate OR 92 93
+107 gate OR 94 95
+108 gate OR 96 97
+109 gate OR 98 99
+110 gate OR 100 101
+111 gate OR 102 103
+112 gate OR 104 105
+113 gate OR 106 107
+114 gate OR 108 109
+115 gate OR 110 111
+116 gate OR 112 113
+117 gate OR 115 116
+118 gate OR 117 114
+119 output NOT 118

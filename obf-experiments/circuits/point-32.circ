@@ -1,0 +1,104 @@
+: nins 32
+: depth 7
+# TEST 01001010110001101110001101111111 1
+# TEST 11010100011010101111101101011011 0
+# TEST 01101101110000111110011101001100 0
+# TEST 11111111100011001111111100110000 0
+# TEST 10011100101011000100100011011000 0
+# TEST 01010100100110010001100010011000 0
+0 input
+1 input
+2 input
+3 input
+4 input
+5 input
+6 input
+7 input
+8 input
+9 input
+10 input
+11 input
+12 input
+13 input
+14 input
+15 input
+16 input
+17 input
+18 input
+19 input
+20 input
+21 input
+22 input
+23 input
+24 input
+25 input
+26 input
+27 input
+28 input
+29 input
+30 input
+31 input
+32 gate ID 0
+33 gate NOT 1
+34 gate ID 2
+35 gate ID 3
+36 gate NOT 4
+37 gate ID 5
+38 gate NOT 6
+39 gate ID 7
+40 gate NOT 8
+41 gate NOT 9
+42 gate ID 10
+43 gate ID 11
+44 gate ID 12
+45 gate NOT 13
+46 gate NOT 14
+47 gate ID 15
+48 gate NOT 16
+49 gate NOT 17
+50 gate NOT 18
+51 gate ID 19
+52 gate ID 20
+53 gate ID 21
+54 gate NOT 22
+55 gate NOT 23
+56 gate ID 24
+57 gate NOT 25
+58 gate NOT 26
+59 gate NOT 27
+60 gate NOT 28
+61 gate NOT 29
+62 gate NOT 30
+63 gate NOT 31
+64 gate OR 32 33
+65 gate OR 34 35
+66 gate OR 36 37
+67 gate OR 38 39
+68 gate OR 40 41
+69 gate OR 42 43
+70 gate OR 44 45
+71 gate OR 46 47
+72 gate OR 48 49
+73 gate OR 50 51
+74 gate OR 52 53
+75 gate OR 54 55
+76 gate OR 56 57
+77 gate OR 58 59
+78 gate OR 60 61
+79 gate OR 62 63
+80 gate OR 64 65
+81 gate OR 66 67
+82 gate OR 68 69
+83 gate OR 70 71
+84 gate OR 72 73
+85 gate OR 74 75
+86 gate OR 76 77
+87 gate OR 78 79
+88 gate OR 80 81
+89 gate OR 82 83
+90 gate OR 84 85
+91 gate OR 86 87
+92 gate OR 88 89
+93 gate OR 90 91
+94 gate OR 92 93
+95 output NOT 94

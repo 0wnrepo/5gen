@@ -44,10 +44,10 @@ for secparam in $SECPARAMS; do
     echo "** security parameter: $secparam"
     for point in `seq $MIN $INC $MAX`; do
         for ext in $exts; do
-            pushd $CIRCUIT_DIR
-            ./point.py $point
-            ./point-json.py $point
-            popd
+            # pushd $CIRCUIT_DIR
+            # ./point.py $point
+            # ./point-json.py $point
+            # popd
             circuit="point-$point.$ext"
             echo "**** circuit: $circuit"
             for mmap in $mmaps; do

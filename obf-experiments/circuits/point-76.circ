@@ -1,0 +1,236 @@
+: nins 76
+: depth 8
+# TEST 0001001101011111001110000001111100110101111111101011010101101001001100111000 1
+# TEST 1001101010001100110100101101011111100110000110101110000111011100001011110101 0
+# TEST 1111011100100101101110111100000001100111101000010101000011111101110100010110 0
+# TEST 0010011100010001010010101111010000101001100110001110111000010101010001001101 0
+# TEST 0000010110001001001011100100010010010000100110101001101000101011010100110011 0
+# TEST 1111001110011100110110101111110111110010001100000001101000000010100011000001 0
+0 input
+1 input
+2 input
+3 input
+4 input
+5 input
+6 input
+7 input
+8 input
+9 input
+10 input
+11 input
+12 input
+13 input
+14 input
+15 input
+16 input
+17 input
+18 input
+19 input
+20 input
+21 input
+22 input
+23 input
+24 input
+25 input
+26 input
+27 input
+28 input
+29 input
+30 input
+31 input
+32 input
+33 input
+34 input
+35 input
+36 input
+37 input
+38 input
+39 input
+40 input
+41 input
+42 input
+43 input
+44 input
+45 input
+46 input
+47 input
+48 input
+49 input
+50 input
+51 input
+52 input
+53 input
+54 input
+55 input
+56 input
+57 input
+58 input
+59 input
+60 input
+61 input
+62 input
+63 input
+64 input
+65 input
+66 input
+67 input
+68 input
+69 input
+70 input
+71 input
+72 input
+73 input
+74 input
+75 input
+76 gate ID 0
+77 gate ID 1
+78 gate ID 2
+79 gate NOT 3
+80 gate ID 4
+81 gate ID 5
+82 gate NOT 6
+83 gate NOT 7
+84 gate ID 8
+85 gate NOT 9
+86 gate ID 10
+87 gate NOT 11
+88 gate NOT 12
+89 gate NOT 13
+90 gate NOT 14
+91 gate NOT 15
+92 gate ID 16
+93 gate ID 17
+94 gate NOT 18
+95 gate NOT 19
+96 gate NOT 20
+97 gate ID 21
+98 gate ID 22
+99 gate ID 23
+100 gate ID 24
+101 gate ID 25
+102 gate ID 26
+103 gate NOT 27
+104 gate NOT 28
+105 gate NOT 29
+106 gate NOT 30
+107 gate NOT 31
+108 gate ID 32
+109 gate ID 33
+110 gate NOT 34
+111 gate NOT 35
+112 gate ID 36
+113 gate NOT 37
+114 gate ID 38
+115 gate NOT 39
+116 gate NOT 40
+117 gate NOT 41
+118 gate NOT 42
+119 gate NOT 43
+120 gate NOT 44
+121 gate NOT 45
+122 gate NOT 46
+123 gate ID 47
+124 gate NOT 48
+125 gate ID 49
+126 gate NOT 50
+127 gate NOT 51
+128 gate ID 52
+129 gate NOT 53
+130 gate ID 54
+131 gate NOT 55
+132 gate ID 56
+133 gate NOT 57
+134 gate NOT 58
+135 gate ID 59
+136 gate NOT 60
+137 gate ID 61
+138 gate ID 62
+139 gate NOT 63
+140 gate ID 64
+141 gate ID 65
+142 gate NOT 66
+143 gate NOT 67
+144 gate ID 68
+145 gate ID 69
+146 gate NOT 70
+147 gate NOT 71
+148 gate NOT 72
+149 gate ID 73
+150 gate ID 74
+151 gate ID 75
+152 gate OR 76 77
+153 gate OR 78 79
+154 gate OR 80 81
+155 gate OR 82 83
+156 gate OR 84 85
+157 gate OR 86 87
+158 gate OR 88 89
+159 gate OR 90 91
+160 gate OR 92 93
+161 gate OR 94 95
+162 gate OR 96 97
+163 gate OR 98 99
+164 gate OR 100 101
+165 gate OR 102 103
+166 gate OR 104 105
+167 gate OR 106 107
+168 gate OR 108 109
+169 gate OR 110 111
+170 gate OR 112 113
+171 gate OR 114 115
+172 gate OR 116 117
+173 gate OR 118 119
+174 gate OR 120 121
+175 gate OR 122 123
+176 gate OR 124 125
+177 gate OR 126 127
+178 gate OR 128 129
+179 gate OR 130 131
+180 gate OR 132 133
+181 gate OR 134 135
+182 gate OR 136 137
+183 gate OR 138 139
+184 gate OR 140 141
+185 gate OR 142 143
+186 gate OR 144 145
+187 gate OR 146 147
+188 gate OR 148 149
+189 gate OR 150 151
+190 gate OR 152 153
+191 gate OR 154 155
+192 gate OR 156 157
+193 gate OR 158 159
+194 gate OR 160 161
+195 gate OR 162 163
+196 gate OR 164 165
+197 gate OR 166 167
+198 gate OR 168 169
+199 gate OR 170 171
+200 gate OR 172 173
+201 gate OR 174 175
+202 gate OR 176 177
+203 gate OR 178 179
+204 gate OR 180 181
+205 gate OR 182 183
+206 gate OR 184 185
+207 gate OR 186 187
+208 gate OR 188 189
+209 gate OR 190 191
+210 gate OR 192 193
+211 gate OR 194 195
+212 gate OR 196 197
+213 gate OR 198 199
+214 gate OR 200 201
+215 gate OR 202 203
+216 gate OR 204 205
+217 gate OR 206 207
+218 gate OR 209 210
+219 gate OR 211 212
+220 gate OR 213 214
+221 gate OR 215 216
+222 gate OR 217 208
+223 gate OR 218 219
+224 gate OR 220 221
+225 gate OR 223 224
+226 gate OR 225 222
+227 output NOT 226
