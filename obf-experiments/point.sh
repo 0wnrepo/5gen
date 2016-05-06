@@ -20,10 +20,21 @@ else
     exit 1
 fi
 
+if [ ! -d "build" ]; then
+    echo "Error: build directory missing"
+    echo "Are you running from the base of the repo?"
+    exit 1
+fi
+
 SECPARAMS=$2
 MIN=$3
 INC=$4
 MAX=$5
+
+if [ "$INC" = "0" ]; then
+    echo "Error: <inc> cannot be set to 0"
+    exit 1
+fi
 
 BIN="build/bin/run-obfuscator"
 DIR="obf-experiments"
