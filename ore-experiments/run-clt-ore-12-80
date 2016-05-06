@@ -1,0 +1,20 @@
+# CLT experiment for 10^12 for ORE, lambda = 80
+
+LAMBDA=80
+BASE=5
+LENGTH=18
+
+cp samples/base-$BASE-length-$LENGTH-3-output-compressed-ore.json public/template.json
+
+date
+./keygen -s $LAMBDA -n 8 -C
+date
+./ore_encrypt -i 1 -C $BASE $LENGTH 11
+date
+./eval -C '{"1":"a","1":"a"}'
+date
+
+du -sh public
+du -sh private
+du -sh database
+

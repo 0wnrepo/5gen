@@ -2,8 +2,8 @@
 
 """
 To use this tool, run:
-./ore_encrypt -i 1 42
-This will encrypt the number 42. Make sure that the flags are set before
+./ore_encrypt -i 1 4 17 42
+This will encrypt the number 42, using base 4 and length 17. Make sure that the flags are set before
 the encrypted message.
 """
 
@@ -12,8 +12,8 @@ import math, sys, os
 
 num = int(sys.argv[-1])
 
-base = 4
-bitstr_len = 17
+base = int(sys.argv[-3])
+bitstr_len = int(sys.argv[-2])
 
 def digit_to_char(digit):
     if digit < 10:
@@ -32,6 +32,13 @@ def dary_repr(number, d, n):
     repr = list(str(str_base(number, d)))
     repr = (['0'] * (n - len(repr))) + repr
     return "".join(repr)
+
+# turns a "10" in any base to a 001 000
+def digit_dary_repr(num_str, d):
+	L = []
+	for x in num_str:
+		L.append(format(int(x), 'b').zfill(int(math.ceil(math.log(d, 2)))))
+	return "".join(L)
 
 def pinch(L, start):
     i = start
@@ -52,13 +59,14 @@ left = pinch(list(repr), 1)
 right = pinch(list(repr), 0)
 arr = interleave(left, right)
 
-arr = map(lambda elem: dary_repr(int(elem, base), 2,
-    len(elem) * int(math.ceil(math.log(base, 2)))), arr)
+arr = map(lambda elem: digit_dary_repr(elem, base), arr)
 
 arr = str(arr).replace('\'','"')
 
 cmd = sys.argv[:]
 cmd[0] = './encrypt'
 cmd[-1] = '\'' + str(arr) + '\''
+del cmd[-2]
+del cmd[-3]
 
 os.system(" ".join(cmd))
