@@ -66,7 +66,7 @@ for secparam in $SECPARAMS; do
                 dir="$LOG_DIR/point-$TIME/$secparam/$point/$circuit/$mmap"
                 mkdir -p $dir
                 obf=$circuit.obf.$secparam
-                eval=`python -c "print('0' * $point)"`
+                eval=`sed -n 1p $CIRCUIT_DIR/$circuit | awk '{ print $3 }'`
 
                 # obfuscate
                 $BIN obf \
