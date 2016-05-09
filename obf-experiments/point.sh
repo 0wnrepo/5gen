@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 set -e
 
-if [ $# -ne 5 ]; then
-    echo "Usage: point.sh <SZ|Z> <secparams> <min> <inc> <max>"
+if [ $# -ne 6 ]; then
+    echo "Usage: point.sh <SZ|Z> <secparams> <min> <inc> <max> <nthreads>"
     exit 1
 fi
 
 if [ "$1" = "SZ" ]; then
     scheme='--sahai-zhandry'
     mmaps='CLT GGH'
-    exts='circ json'
+    exts='json'
 elif [ "$1" = "Z" ]; then
     scheme='--zimmerman'
     mmaps='CLT'
@@ -30,9 +30,10 @@ SECPARAMS=$2
 MIN=$3
 INC=$4
 MAX=$5
+NTHREADS=$6
 
 if [ "$INC" = "0" ]; then
-    echo "Error: <inc> cannot be set to 0"
+    echo "Error: because we are using 'seq', <inc> cannot be set to 0"
     exit 1
 fi
 
@@ -55,10 +56,6 @@ for secparam in $SECPARAMS; do
     echo "** security parameter: $secparam"
     for point in `seq $MIN $INC $MAX`; do
         for ext in $exts; do
-            # pushd $CIRCUIT_DIR
-            # ./point.py $point
-            # ./point-json.py $point
-            # popd
             circuit="point-$point.$ext"
             echo "**** circuit: $circuit"
             for mmap in $mmaps; do
@@ -73,7 +70,7 @@ for secparam in $SECPARAMS; do
                      --load $CIRCUIT_DIR/$circuit \
                      --secparam $secparam \
                      --mlm $mmap \
-                     $scheme \
+                     $scheme --nthreads $NTHREADS \
                      --verbose 2> $dir/obf-time.log
                 # get size of obfuscation
                 du --bytes $CIRCUIT_DIR/$obf/* > $dir/obf-size.log
@@ -90,3 +87,5 @@ for secparam in $SECPARAMS; do
         done
     done
 done
+
+zip -r results-$TIME.zip $LOG_DIR
