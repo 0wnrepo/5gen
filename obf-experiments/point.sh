@@ -32,7 +32,7 @@ INC=$4
 MAX=$5
 
 if [ "$INC" = "0" ]; then
-    echo "Error: <inc> cannot be set to 0"
+    echo "Error: because we are using 'seq', <inc> cannot be set to 0"
     exit 1
 fi
 
