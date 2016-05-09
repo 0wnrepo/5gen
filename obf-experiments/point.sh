@@ -90,3 +90,5 @@ for secparam in $SECPARAMS; do
         done
     done
 done
+
+zip -r results-$TIME.zip $LOG_DIR
