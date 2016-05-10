@@ -8,10 +8,10 @@ fi
 
 if [ "$1" = "SZ" ]; then
     scheme='--sahai-zhandry'
-    exts='json'
+    ext='json'
 elif [ "$1" = "Z" ]; then
     scheme='--zimmerman'
-    exts='acirc'
+    ext='acirc'
 else
     echo "Error: '$1' invalid"
     exit 1
@@ -47,6 +47,7 @@ echo "**************************************************************"
 echo "* Running point functions: $points"
 echo "* Security parameters: $secparams"
 echo "* Multilinear maps: $mmaps"
+echo "* Number of threads: $nthreads"
 echo "* Scheme: $1"
 echo "**************************************************************"
 echo ""
@@ -54,35 +55,33 @@ echo ""
 for secparam in $secparams; do
     echo "** security parameter: $secparam"
     for point in $points; do
-        for ext in $exts; do
-            circuit="point-$point.$ext"
-            echo "**** circuit: $circuit"
-            for mmap in $mmaps; do
-                echo "****** multilinear map: $mmap"
-                dir="$LOG_DIR/point-$TIME/$secparam/$point/$circuit/$mmap"
-                mkdir -p $dir
-                obf=$circuit.obf.$secparam
-                eval=`sed -n 1p $CIRCUIT_DIR/$circuit | awk '{ print $3 }'`
+        circuit="point-$point.$ext"
+        echo "**** circuit: $circuit"
+        for mmap in $mmaps; do
+            echo "****** multilinear map: $mmap"
+            dir="$LOG_DIR/point-$TIME/$secparam/$point/$mmap/$nthreads"
+            mkdir -p "$dir"
+            obf=$circuit.obf.$secparam
+            eval=`sed -n 1p $CIRCUIT_DIR/$circuit | awk '{ print $3 }'`
 
-                # obfuscate
-                $BIN obf \
-                     --load $CIRCUIT_DIR/$circuit \
-                     --secparam $secparam \
-                     --mlm $mmap \
-                     $scheme --nthreads $nthreads \
-                     --verbose 2> $dir/obf-time.log
-                # get size of obfuscation
-                du --bytes $CIRCUIT_DIR/$obf/* > $dir/obf-size.log
-                # evaluate
-                $BIN obf \
-                     --load-obf $CIRCUIT_DIR/$obf \
-                     --eval $eval \
-                     --mlm $mmap \
-                     $scheme \
-                     --verbose 2> $dir/eval-time.log
-                # cleanup
-                rm -rf $CIRCUIT_DIR/$circuit.obf.$secparam
-            done
+            # obfuscate
+            $BIN obf \
+                 --load $CIRCUIT_DIR/$circuit \
+                 --secparam $secparam \
+                 --mlm $mmap \
+                 $scheme --nthreads $nthreads \
+                 --verbose 2> $dir/obf-time.log
+            # get size of obfuscation
+            du --bytes $CIRCUIT_DIR/$obf/* > $dir/obf-size.log
+            # evaluate
+            $BIN obf \
+                 --load-obf $CIRCUIT_DIR/$obf \
+                 --eval $eval \
+                 --mlm $mmap \
+                 $scheme \
+                 --verbose 2> $dir/eval-time.log
+            # cleanup
+            rm -rf $CIRCUIT_DIR/$circuit.obf.$secparam
         done
     done
 done
