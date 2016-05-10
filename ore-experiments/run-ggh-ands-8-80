@@ -1,17 +1,17 @@
-# GGHLite experiment for 10^12 for ORE, lambda = 80
+# CLT experiment for 10^12 for ORE, lambda = 80
 
 LAMBDA=80
-BASE=5
-LENGTH=18
+BASE=4
+LENGTH=8
 
 cp samples/base-$BASE-length-$LENGTH-3-output-compressed-ore.json public/template.json
 
 date
 ./keygen -s $LAMBDA -n 8
 date
-./ore_encrypt -i 1 $BASE $LENGTH 11
+./ands_encrypt -i 1 $BASE $LENGTH 11
 date
-./eval '{"a":"1","b":"1"}'
+./eval '{"a":"1","b":"1","c":"1"}'
 date
 
 du -sh public

@@ -11,7 +11,7 @@ date
 date
 ./ore_encrypt -i 1 -C $BASE $LENGTH 11
 date
-./eval -C '{"1":"a","1":"a"}'
+./eval -C '{"a":"1","b":"1"}'
 date
 
 du -sh public
