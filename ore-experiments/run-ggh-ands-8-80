@@ -4,7 +4,7 @@ LAMBDA=80
 BASE=4
 LENGTH=8
 
-cp samples/base-$BASE-length-$LENGTH-3-output-compressed-ore.json public/template.json
+cp samples/base-$BASE-length-$LENGTH-or-of-ands.json public/template.json
 
 date
 ./keygen -s $LAMBDA -n 8
