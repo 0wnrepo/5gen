@@ -3,17 +3,65 @@
 #abort if any command fails
 set -e
 
-git submodule init
-git submodule update
-git submodule foreach git pull origin master --force
-git submodule foreach git checkout master --force
+echo "libaesrand"
+	path=libaesrand
+	url=https://github.com/spaceships/libaesrand.git
+    if [ ! -d $path ]; then
+        git clone $url;
+    else
+        cd $path; git pull origin master; cd ..;
+    fi
+
+echo "clt13"
+	path=clt13
+	url=https://github.com/spaceships/clt13.git
+    if [ ! -d $path ]; then
+        git clone $url;
+    else
+        cd $path; git pull origin master; cd ..;
+    fi
+
+echo "gghlite-flint"
+	path=gghlite-flint
+	url=https://github.com/amaloz/gghlite-flint.git
+    if [ ! -d $path ]; then
+        git clone $url;
+    else
+        cd $path; git pull origin master; cd ..;
+    fi
+
+echo "obfuscation"
+	path=obfuscation
+	url=https://github.com/amaloz/obfuscation.git
+    if [ ! -d $path ]; then
+        git clone $url;
+    else
+        cd $path; git pull origin master; cd ..;
+    fi
+
+echo "libmmap"
+	path=libmmap
+	url=https://github.com/amaloz/libmmap
+    if [ ! -d $path ]; then
+        git clone $url;
+    else
+        cd $path; git pull origin master; cd ..;
+    fi
+
+echo "mife"
+	path=mife
+	url=https://github.com/amaloz/mife
+    if [ ! -d $path ]; then
+        git clone $url;
+    else
+        cd $path; git pull origin master; cd ..;
+    fi
 
 mkdir -p build
 builddir=$(readlink -f build)
 
 export CPPFLAGS=-I$builddir/include
 export CFLAGS=-I$builddir/include
-export CPPFLAGS=-I$builddir/include
 export LDFLAGS=-L$builddir/lib
 
 echo builddir = $builddir
