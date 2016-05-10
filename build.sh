@@ -70,7 +70,7 @@ cd obfuscation
     make
     make install
     export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$builddir/lib"
-    export PYTHONPATH="$builddir/lib/python2.7/site-packages"
+    export PYTHONPATH="$builddir/lib/python2.7/site-packages:$builddir/lib64/python2.7/site-packages"
     python2 setup.py test
     mkdir -p $builddir/lib/python2.7/site-packages
     python2 setup.py install --prefix=$builddir
@@ -79,7 +79,7 @@ cd ..
 cat << EOF > $builddir/bin/run-obfuscator
 #!/usr/bin/env bash
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$builddir/lib"
-export PYTHONPATH="$builddir/lib/python2.7/site-packages"
+export PYTHONPATH="$builddir/lib/python2.7/site-packages:$builddir/lib64/python2.7/site-packages"
 $builddir/bin/obfuscator "\$@"
 EOF
 chmod 755 $builddir/bin/run-obfuscator
