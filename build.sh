@@ -73,6 +73,7 @@ cd obfuscation
     export PYTHONPATH="$builddir/lib/python2.7/site-packages:$builddir/lib64/python2.7/site-packages"
     python2 setup.py test
     mkdir -p $builddir/lib/python2.7/site-packages
+    mkdir -p $builddir/lib64/python2.7/site-packages
     python2 setup.py install --prefix=$builddir
 cd ..
 
