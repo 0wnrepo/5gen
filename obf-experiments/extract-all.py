@@ -14,9 +14,10 @@ def main(argv):
     dir = argv[1]
     utils.obftime('%s/obf-time.log' % dir)
     size = utils.obfsize('%s/obf-size.log' % dir)
-    print('Size:      %.2f MB' % round(size / 2 ** 20, 2))
-    time = utils.evaltime('%s/eval-time.log' % dir)
+    print('Obf Size:  %.2f MB' % round(size / 2 ** 20, 2))
+    time, ram = utils.evaltime('%s/eval-time.log' % dir)
     print('Eval Time: %.2f s' % round(time, 2))
+    print('Eval RAM:  %.2f MB' % round(ram / 1024, 2))
 
 if __name__ == '__main__':
     try:

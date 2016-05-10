@@ -33,7 +33,7 @@ def obftime(fname):
                 r = extract(line)
                 print('Obf Time:  %.2f s' % round(r, 2))
             elif line.startswith('Max memory'):
-                print('RAM:       %.2f MB' % round(extract(line) / 1024, 2))
+                print('Obf RAM:   %.2f MB' % round(extract(line) / 1024, 2))
                 break
 
 def obfsize(fname):
@@ -45,12 +45,19 @@ def obfsize(fname):
         return int(total)
 
 def evaltime(fname):
+    time = None
+    ram = None
     with open(fname, 'r') as f:
         while True:
             try:
                 line = f.next()
             except StopIteration:
-                raise Exception('Could not find time info')
+                break
             if line.startswith('Took:'):
-                a, b = line.rstrip().rsplit(' ', 1)
-                return float(b)
+                _, b = line.rstrip().rsplit(' ', 1)
+                time = float(b)
+            if line.startswith('Max memory usage:'):
+                _, b = line.rstrip().rsplit(' ', 1)
+                ram = int(b)
+    return time, ram
+                
