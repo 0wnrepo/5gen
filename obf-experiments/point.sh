@@ -1,24 +1,28 @@
 #!/usr/bin/env bash
 set -e
 
-if [ $# -ne 6 ]; then
-    echo "Usage: point.sh <SZ|Z> <secparams> <min> <inc> <max> <nthreads>"
+if [ $# -ne 5 ]; then
+    echo "Usage: point.sh <SZ|Z> <mmaps> <secparams> <points> <nthreads>"
     exit 1
 fi
 
 if [ "$1" = "SZ" ]; then
     scheme='--sahai-zhandry'
-    mmaps='CLT GGH'
     exts='json'
 elif [ "$1" = "Z" ]; then
     scheme='--zimmerman'
-    mmaps='CLT'
     exts='acirc'
 else
     echo "Error: '$1' invalid"
-    echo "Usage: point.sh <SZ|Z> <secparams>"
     exit 1
 fi
+
+for mmap in $2; do
+    if [ "$mmap" != "CLT" ] && [ "$mmap" != "GGH" ]; then
+        echo "Error: mmap must be either CLT or GGH"
+        exit 1
+    fi
+done
 
 if [ ! -d "build" ]; then
     echo "Error: build directory missing"
@@ -26,16 +30,10 @@ if [ ! -d "build" ]; then
     exit 1
 fi
 
-SECPARAMS=$2
-MIN=$3
-INC=$4
-MAX=$5
-NTHREADS=$6
-
-if [ "$INC" = "0" ]; then
-    echo "Error: because we are using 'seq', <inc> cannot be set to 0"
-    exit 1
-fi
+mmaps=$2
+secparams=$3
+points=$4
+nthreads=$5
 
 BIN="build/bin/run-obfuscator"
 DIR="obf-experiments"
@@ -46,15 +44,16 @@ TIME=`date +"%F__%H-%M-%S"`
 mkdir -p "$LOG_DIR/point-$TIME"
 
 echo "**************************************************************"
-echo "* Running point functions: $(seq $MIN $INC $MAX | tr '\n' ' ')"
-echo "* Security parameters: $SECPARAMS"
+echo "* Running point functions: $points"
+echo "* Security parameters: $secparams"
+echo "* Multilinear maps: $mmaps"
 echo "* Scheme: $1"
 echo "**************************************************************"
 echo ""
 
-for secparam in $SECPARAMS; do
+for secparam in $secparams; do
     echo "** security parameter: $secparam"
-    for point in `seq $MIN $INC $MAX`; do
+    for point in $points; do
         for ext in $exts; do
             circuit="point-$point.$ext"
             echo "**** circuit: $circuit"
@@ -70,7 +69,7 @@ for secparam in $SECPARAMS; do
                      --load $CIRCUIT_DIR/$circuit \
                      --secparam $secparam \
                      --mlm $mmap \
-                     $scheme --nthreads $NTHREADS \
+                     $scheme --nthreads $nthreads \
                      --verbose 2> $dir/obf-time.log
                 # get size of obfuscation
                 du --bytes $CIRCUIT_DIR/$obf/* > $dir/obf-size.log
@@ -88,4 +87,4 @@ for secparam in $SECPARAMS; do
     done
 done
 
-zip -r results-$TIME.zip $LOG_DIR
+zip -q -r results-$TIME.zip $LOG_DIR
