@@ -68,7 +68,7 @@ for secparam in $secparams; do
             $BIN obf \
                  --load $CIRCUIT_DIR/$circuit \
                  --secparam $secparam \
-                 --mlm $mmap \
+                 --mmap $mmap \
                  $scheme --nthreads $nthreads \
                  --verbose 2> $dir/obf-time.log
             # get size of obfuscation
@@ -77,7 +77,7 @@ for secparam in $secparams; do
             $BIN obf \
                  --load-obf $CIRCUIT_DIR/$obf \
                  --eval $eval \
-                 --mlm $mmap \
+                 --mmap $mmap \
                  $scheme \
                  --verbose 2> $dir/eval-time.log
             # cleanup
