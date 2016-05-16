@@ -64,11 +64,20 @@ for secparam in $secparams; do
             obf=$circuit.obf.$secparam
             eval=`sed -n 1p $CIRCUIT_DIR/$circuit | awk '{ print $3 }'`
 
+	    cat << EOF > script.py
+try:
+    print('$point'.split('-')[1])
+except:
+    print('2')
+EOF
+	    base=`python script.py`
+	    rm script.py
+
             # obfuscate
             $BIN obf \
                  --load $CIRCUIT_DIR/$circuit \
                  --secparam $secparam \
-                 --mlm $mmap \
+                 --mmap $mmap \
                  $scheme --nthreads $nthreads \
                  --verbose 2> $dir/obf-time.log
             # get size of obfuscation
@@ -77,7 +86,8 @@ for secparam in $secparams; do
             $BIN obf \
                  --load-obf $CIRCUIT_DIR/$obf \
                  --eval $eval \
-                 --mlm $mmap \
+                 --mmap $mmap \
+		 --base $base \
                  $scheme \
                  --verbose 2> $dir/eval-time.log
             # cleanup
