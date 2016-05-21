@@ -26,7 +26,7 @@ make install
 ldconfig
 
 cd /bin
-git clone https://github.com/kevinlewi/mmap-experiments.git
+git clone https://github.com/5GenCrypto/mmap-experiments.git
 
 cd mmap-experiments
 ./build.sh
