@@ -5,7 +5,7 @@ set -e
 
 echo "libaesrand"
 	path=libaesrand
-	url=https://github.com/spaceships/libaesrand.git
+	url=https://github.com/5GenCrypto/libaesrand.git
     if [ ! -d $path ]; then
         git clone $url;
     else
@@ -14,7 +14,7 @@ echo "libaesrand"
 
 echo "clt13"
 	path=clt13
-	url=https://github.com/spaceships/clt13.git
+	url=https://github.com/5GenCrypto/clt13.git
     if [ ! -d $path ]; then
         git clone $url;
     else
@@ -23,7 +23,7 @@ echo "clt13"
 
 echo "gghlite-flint"
 	path=gghlite-flint
-	url=https://github.com/amaloz/gghlite-flint.git
+	url=https://github.com/5GenCrypto/gghlite-flint.git
     if [ ! -d $path ]; then
         git clone $url;
     else
@@ -32,7 +32,7 @@ echo "gghlite-flint"
 
 echo "obfuscation"
 	path=obfuscation
-	url=https://github.com/amaloz/obfuscation.git
+	url=https://github.com/5GenCrypto/obfuscation.git
     if [ ! -d $path ]; then
         git clone $url;
     else
@@ -41,7 +41,7 @@ echo "obfuscation"
 
 echo "libmmap"
 	path=libmmap
-	url=https://github.com/amaloz/libmmap
+	url=https://github.com/5GenCrypto/libmmap
     if [ ! -d $path ]; then
         git clone $url;
     else
@@ -50,7 +50,7 @@ echo "libmmap"
 
 echo "mife"
 	path=mife
-	url=https://github.com/amaloz/mife
+	url=https://github.com/5GenCrypto/mife
     if [ ! -d $path ]; then
         git clone $url;
     else
