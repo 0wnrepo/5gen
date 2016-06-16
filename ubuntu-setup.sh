@@ -26,12 +26,7 @@ make install
 ldconfig
 
 cd /bin
-git clone https://github.com/5GenCrypto/mmap-experiments.git
+git clone https://github.com/5GenCrypto/5gen.git
 
-cd mmap-experiments
+cd 5gen
 ./build.sh
-
-# set up ore-experiments
-cp build/bin/keygen ore-experiments/
-cp build/bin/encrypt ore-experiments/
-cp build/bin/eval ore-experiments/

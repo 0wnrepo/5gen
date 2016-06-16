@@ -2,7 +2,7 @@
 
 """
 To use this tool, run:
-./ands_encrypt -i 1 4 8 42
+./3dnf_encrypt -i 1 4 8 42
 This will encrypt the number 42, using base 4 and length 8. Make sure that the flags are set before
 the encrypted message.
 """

@@ -26,7 +26,7 @@ RUN make install
 RUN ldconfig
 
 WORKDIR /bin
-RUN git clone https://github.com/5GenCrypto/mmap-experiments.git
+RUN git clone https://github.com/5GenCrypto/5gen.git
 
-WORKDIR mmap-experiments
+WORKDIR 5gen
 RUN ./build.sh
