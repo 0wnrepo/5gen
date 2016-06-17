@@ -22,9 +22,15 @@ source setup.sh
 We offer MIFE for the comparison function (also known as order-revealing 
 encryption, ORE) and the 3dnf function (which we will call 3DNF).
 
-MIFE consists of three algorithms: keygen, encrypt, and eval.
-
-TODO
+MIFE consists of three algorithms: keygen, encrypt, and eval. You can run each 
+one individually, found in the `mife/` directory. You can also execute our 
+example scripts for ORE and 3DNF which run all three algorithms.
+```
+./run-ore-clt
+./run-3dnf-clt
+````
+The ciphertexts are by default stored in `database/`, the public key stored in 
+`public/`, and the private key stored in `private/`.
 
 ### Obfuscation examples
 
