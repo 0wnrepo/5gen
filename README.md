@@ -9,13 +9,24 @@ Run the following to build all the libraries needed locally.
 ```
 build.sh
 ```
-(On Ubuntu 14.04, you can use `ubuntu-setup.sh` to install all the necessary 
+(On Ubuntu 14.04, you can use `ubuntu-build.sh` to install all the necessary 
 libraries and build the code.)
 
 Before running the below examples, run the following to set up the environment.
 ```
 source setup.sh
 ```
+
+
+### Matrix branching program generation
+
+To specify a function for either MIFE or obfuscation, we rely on cryfsm 
+(https://github.com/5GenCrypto/cryfsm) to convert the function specification (in 
+Cryptol) into a matrix branching program (as a `.json` file).
+
+To run our examples for MIFE and obfuscation, we have generated the necessary 
+`.json` files for certain settings of ORE, 3DNF encryption, and point function 
+obfuscation.
 
 ### Multi-input functional encryption examples
 
@@ -43,3 +54,4 @@ point functions of length 8, 12, 16, run:
 ```
 obfuscation/point.sh SZ "40 80" 8 4 16
 ````
+
