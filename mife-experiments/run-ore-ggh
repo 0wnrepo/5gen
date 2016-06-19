@@ -10,8 +10,8 @@ N=8 # max number of plaintexts that can be encrypted
 
 cp samples/base-$BASE-length-$LENGTH-3-output-compressed-ore.json public/template.json
 
-./keygen -s $LAMBDA -n $N
+../build/bin/keygen -s $LAMBDA -n $N
 ./ore_encrypt -i 1 $BASE $LENGTH 5
 ./ore_encrypt -i 2 $BASE $LENGTH 7
-./eval -C '{"a":"1","b":"2"}'
+../build/bin/eval -C '{"a":"1","b":"2"}'
 
