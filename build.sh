@@ -7,7 +7,7 @@ echo "libaesrand"
 	path=libaesrand
 	url=https://github.com/5GenCrypto/libaesrand.git
     if [ ! -d $path ]; then
-        git clone $url;
+        git clone -b dev $url;
     else
         cd $path; git pull origin master; cd ..;
     fi
@@ -16,7 +16,7 @@ echo "clt13"
 	path=clt13
 	url=https://github.com/5GenCrypto/clt13.git
     if [ ! -d $path ]; then
-        git clone $url;
+        git clone -b dev $url;
     else
         cd $path; git pull origin master; cd ..;
     fi
