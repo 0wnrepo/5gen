@@ -9,7 +9,7 @@ echo "libaesrand"
     if [ ! -d $path ]; then
         git clone -b dev $url;
     else
-        cd $path; git pull origin master; cd ..;
+        cd $path; git pull origin dev; cd ..;
     fi
 
 echo "clt13"
@@ -18,7 +18,7 @@ echo "clt13"
     if [ ! -d $path ]; then
         git clone -b dev $url;
     else
-        cd $path; git pull origin master; cd ..;
+        cd $path; git pull origin dev; cd ..;
     fi
 
 echo "gghlite-flint"
