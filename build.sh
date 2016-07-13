@@ -43,9 +43,9 @@ echo "libmmap"
 	path=libmmap
 	url=https://github.com/5GenCrypto/libmmap
     if [ ! -d $path ]; then
-        git clone $url;
+        git clone -b dev $url;
     else
-        cd $path; git pull origin master; cd ..;
+        cd $path; git pull origin dev; cd ..;
     fi
 
 echo "mife"
