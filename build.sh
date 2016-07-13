@@ -34,9 +34,9 @@ echo "obfuscation"
 	path=obfuscation
 	url=https://github.com/5GenCrypto/obfuscation.git
     if [ ! -d $path ]; then
-        git clone $url;
+        git clone -b dev $url;
     else
-        cd $path; git pull origin master; cd ..;
+        cd $path; git pull origin dev; cd ..;
     fi
 
 echo "libmmap"
