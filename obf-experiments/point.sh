@@ -37,7 +37,7 @@ nthreads=$5
 
 BIN="build/bin/run-obfuscator"
 DIR="obf-experiments"
-CIRCUIT_DIR="$DIR/circuits"
+CIRCUIT_DIR="$DIR/mbps"
 LOG_DIR="$DIR/results"
 
 TIME=`date +"%F__%H-%M-%S"`
