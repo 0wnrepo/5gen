@@ -2,6 +2,12 @@ import os
 
 def extract(line):
     return float(line.rstrip().rsplit(' ', 1)[1])
+def extract_bracket(line):
+    try:
+        str = line.rstrip().rsplit('\t', 1)[1]
+    except IndexError:
+        str = line.rstrip().rsplit(' ', 1)[1]
+    return float(str[1:-2])
 
 def obftime(fname):
     mmap = False
@@ -14,16 +20,20 @@ def obftime(fname):
             if line.startswith('Initializing mmap'):
                 mmap = True
             elif line.startswith('Generating p_i'):
-                r = extract(line)
+                line = f.next().strip()
+                r = extract_bracket(line)
                 print('    p_i/g_i: %.2f s' % round(r, 2))
             elif line.startswith('Generating CRT'):
-                r = extract(line)
+                line = f.next().strip()
+                r = extract_bracket(line)
                 print('    CRT:     %.2f s' % round(r, 2))
             elif line.startswith('Generating z_i'):
-                r = extract(line)
+                line = f.next().strip()
+                r = extract_bracket(line)
                 print('    z_i:     %.2f s' % round(r, 2))
             elif line.startswith('Generating pzt'):
-                r = extract(line)
+                line = f.next().strip()
+                r = extract_bracket(line)
                 print('    pzt:     %.2f s' % round(r, 2))
             elif line.startswith('Took') and mmap:
                 r = extract(line)
