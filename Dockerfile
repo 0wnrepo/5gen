@@ -2,8 +2,8 @@ FROM ubuntu:14.04
 
 RUN apt-get -y update
 RUN apt-get -y install software-properties-common
-RUN apt-get -y install git
 RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test
+RUN apt-get -y install git
 RUN apt-get -y install gcc-4.9
 RUN apt-get -y install autoconf
 RUN apt-get -y install libtool
@@ -15,18 +15,18 @@ RUN apt-get -y install python python-dev python-setuptools python-numpy python-n
 RUN apt-get -y install wget
 RUN apt-get -y install g++
 
-WORKDIR /bin
+WORKDIR /inst
 RUN wget http://flintlib.org/flint-2.5.2.tar.gz
 RUN tar xvf flint-2.5.2.tar.gz
 
-WORKDIR flint-2.5.2
+WORKDIR /inst/flint-2.5.2
 RUN ./configure
-RUN make
+RUN make -j
 RUN make install
 RUN ldconfig
 
-WORKDIR /bin
+WORKDIR /inst
 RUN git clone https://github.com/5GenCrypto/5gen.git
 
-WORKDIR 5gen
-RUN ./build.sh
+WORKDIR /inst/5gen
+RUN ./build-ccs.sh
