@@ -1,23 +1,15 @@
 #!/usr/bin/env bash
 set -e
 
-if [ $# -ne 5 ]; then
-    echo "Usage: point.sh <SZ|Z> <mmaps> <secparams> <points> <nthreads>"
+if [ $# -ne 4 ]; then
+    echo "Usage: point.sh <mmaps> <secparams> <points> <nthreads>"
     exit 1
 fi
 
-if [ "$1" = "SZ" ]; then
-    scheme='--sahai-zhandry'
-    ext='json'
-elif [ "$1" = "Z" ]; then
-    scheme='--zimmerman'
-    ext='acirc'
-else
-    echo "Error: '$1' invalid"
-    exit 1
-fi
+scheme='--sahai-zhandry'
+ext='json'
 
-for mmap in $2; do
+for mmap in $1; do
     if [ "$mmap" != "CLT" ] && [ "$mmap" != "GGH" ]; then
         echo "Error: mmap must be either CLT or GGH"
         exit 1
@@ -30,10 +22,10 @@ if [ ! -d "build" ]; then
     exit 1
 fi
 
-mmaps=$2
-secparams=$3
-points=$4
-nthreads=$5
+mmaps=$1
+secparams=$2
+points=$3
+nthreads=$4
 
 BIN="build/bin/run-obfuscator"
 DIR="obf-experiments"
