@@ -17,29 +17,29 @@ def obftime(fname):
                 line = f.next().strip()
             except StopIteration:
                 break
-            if line.startswith('Initializing mmap'):
-                mmap = True
-            elif line.startswith('Generating p_i'):
-                line = f.next().strip()
-                r = extract_bracket(line)
-                print('    p_i/g_i: %.2f s' % round(r, 2))
-            elif line.startswith('Generating CRT'):
-                line = f.next().strip()
-                r = extract_bracket(line)
-                print('    CRT:     %.2f s' % round(r, 2))
-            elif line.startswith('Generating z_i'):
-                line = f.next().strip()
-                r = extract_bracket(line)
-                print('    z_i:     %.2f s' % round(r, 2))
-            elif line.startswith('Generating pzt'):
-                line = f.next().strip()
-                r = extract_bracket(line)
-                print('    pzt:     %.2f s' % round(r, 2))
-            elif line.startswith('Took') and mmap:
-                r = extract(line)
-                print('Mmap Time: %.2f s' % round(r, 2))
-                mmap = False
-            elif line.startswith('Obfuscation took'):
+            # if line.startswith('Initializing mmap'):
+            #     mmap = True
+            # elif line.startswith('Generating p_i'):
+            #     line = f.next().strip()
+            #     r = extract_bracket(line)
+            #     print('    p_i/g_i: %.2f s' % round(r, 2))
+            # elif line.startswith('Generating CRT'):
+            #     line = f.next().strip()
+            #     r = extract_bracket(line)
+            #     print('    CRT:     %.2f s' % round(r, 2))
+            # elif line.startswith('Generating z_i'):
+            #     line = f.next().strip()
+            #     r = extract_bracket(line)
+            #     print('    z_i:     %.2f s' % round(r, 2))
+            # elif line.startswith('Generating pzt'):
+            #     line = f.next().strip()
+            #     r = extract_bracket(line)
+            #     print('    pzt:     %.2f s' % round(r, 2))
+            # elif line.startswith('Took') and mmap:
+            #     r = extract(line)
+            #     print('Mmap Time: %.2f s' % round(r, 2))
+            #     mmap = False
+            if line.startswith('Obfuscation took'):
                 r = extract(line)
                 print('Obf Time:  %.2f s' % round(r, 2))
             elif line.startswith('Max memory'):

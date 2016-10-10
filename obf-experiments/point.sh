@@ -77,12 +77,13 @@ EOF
                  --load-obf $CIRCUIT_DIR/$obf \
                  --eval $eval \
                  --mmap $mmap \
-		 --base $base \
+		         --base $base \
                  --verbose 2> $dir/eval-time.log
+            $DIR/extract-all.py $dir
             # cleanup
             rm -rf $CIRCUIT_DIR/$circuit.obf.$secparam
         done
     done
 done
 
-zip -q -r results-$TIME.zip $LOG_DIR
+# zip -q -r results-$TIME.zip $LOG_DIR
