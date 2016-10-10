@@ -6,7 +6,6 @@ if [ $# -ne 4 ]; then
     exit 1
 fi
 
-scheme='--sahai-zhandry'
 ext='json'
 
 for mmap in $1; do
@@ -40,7 +39,6 @@ echo "* Running point functions: $points"
 echo "* Security parameters: $secparams"
 echo "* Multilinear maps: $mmaps"
 echo "* Number of threads: $nthreads"
-echo "* Scheme: $1"
 echo "**************************************************************"
 echo ""
 
@@ -70,7 +68,7 @@ EOF
                  --load $CIRCUIT_DIR/$circuit \
                  --secparam $secparam \
                  --mmap $mmap \
-                 $scheme --nthreads $nthreads \
+                 --nthreads $nthreads \
                  --verbose 2> $dir/obf-time.log
             # get size of obfuscation
             du --bytes $CIRCUIT_DIR/$obf/* > $dir/obf-size.log
@@ -80,7 +78,6 @@ EOF
                  --eval $eval \
                  --mmap $mmap \
 		 --base $base \
-                 $scheme \
                  --verbose 2> $dir/eval-time.log
             # cleanup
             rm -rf $CIRCUIT_DIR/$circuit.obf.$secparam
