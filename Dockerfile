@@ -12,7 +12,7 @@ RUN apt-get -y install libgmp3-dev
 RUN apt-get -y install libmpfr-dev libmpfr4
 RUN apt-get -y install libssl-dev
 RUN apt-get -y install python python-dev python-setuptools python-numpy python-networkx
-RUN apt-get -y install wget
+RUN apt-get -y install wget zip
 RUN apt-get -y install g++
 
 WORKDIR /inst
@@ -29,4 +29,15 @@ WORKDIR /inst
 RUN git clone https://github.com/5GenCrypto/5gen.git
 
 WORKDIR /inst/5gen
+RUN git pull origin master
+
 RUN ./build-ccs.sh
+# Run obfuscation experiments
+RUN ./obf-experiments/point.sh GGH 40 9-13 0
+RUN ./obf-experiments/point.sh CLT 40 6-16 0
+RUN ./obf-experiments/point.sh GGH 40 6-31 0
+RUN ./obf-experiments/point.sh CLT 40 7-29 0
+RUN ./obf-experiments/point.sh CLT 80 8-27 0
+# Run ORE experiments
+
+# Run 3DNF experiments
