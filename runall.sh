@@ -19,20 +19,28 @@ echo "* Running ORE experiments                                    *"
 echo "**************************************************************"
 pushd mife-experiments
 ./run-ore.sh CLT $small 4 18
+du -h
 ./clean.sh
 ./run-ore.sh CLT $small 4 21
+du -h
 ./clean.sh
 ./run-ore.sh GGH $small 4 18
+du -h
 ./clean.sh
 ./run-ore.sh GGH $small 4 21
+du -h
 ./clean.sh
 ./run-ore.sh CLT $big   4 18
+du -h
 ./clean.sh
 ./run-ore.sh CLT $big   4 21
+du -h
 ./clean.sh
 ./run-ore.sh GGH $big   4 18
+du -h
 ./clean.sh
 ./run-ore.sh GGH $big   5 19
+du -h
 ./clean.sh
 popd
 
@@ -42,11 +50,15 @@ echo "* Running 3DNF experiments                                   *"
 echo "**************************************************************"
 pushd mife-experiments
 ./run-3dnf.sh CLT $small 4 16
+du -h
 ./clean.sh
 ./run-3dnf.sh CLT $big   4 16
+du -h
 ./clean.sh
 ./run-3dnf.sh GGH $small 4 16
+du -h
 ./clean.sh
 ./run-3dnf.sh GGH $big   4 16
+du -h
 ./clean.sh
 popd
