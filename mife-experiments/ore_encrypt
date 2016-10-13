@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python2
 
 """
 To use this tool, run:
@@ -64,7 +64,7 @@ arr = map(lambda elem: digit_dary_repr(elem, base), arr)
 arr = str(arr).replace('\'','"')
 
 cmd = sys.argv[:]
-cmd[0] = './build/bin/encrypt'
+cmd[0] = '../build/bin/encrypt'
 cmd[-1] = '\'' + str(arr) + '\''
 del cmd[-3]
 del cmd[-2]
