@@ -41,8 +41,8 @@ def dc_num_enc(d, κ):
 def mc_num_enc(d, κ):
     return 3*(κ-2)*(d+2) + 4*d  # Equation (3)
 # number of encodings M for point-function obfuscation
-def num_enc(d, λ):
-    return 2 + 4 * d * math.ceil(λ / math.log2(d))
+def num_enc(d, n):
+    return 2 + 4 * d * (n-1)
 
 # returns input length n from domain size N and base d
 def get_n(N, d):
@@ -173,8 +173,8 @@ def gen_latex_degree_optimizations_obf(num, λ):
 
     for d in range(2, 81):
         n = get_n(num, d)
-        _ggh = gb(num_enc(d, λ) * ggh_sizes[n])
-        _clt = gb(num_enc(d, λ) * get_clt_size(λ, n))
+        _ggh = gb(num_enc(d, n) * ggh_sizes[n])
+        _clt = gb(num_enc(d, n) * get_clt_size(λ, n))
 
         if min_ggh[2] > _ggh:
             min_ggh = (d, n, _ggh)
