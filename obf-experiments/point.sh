@@ -52,33 +52,45 @@ for secparam in $secparams; do
             dir="$LOG_DIR/point-$TIME/$secparam/$point/$mmap/$nthreads"
             mkdir -p "$dir"
             obf=$circuit.obf.$secparam
-            eval=`sed -n 1p $CIRCUIT_DIR/$circuit | awk '{ print $3 }'`
+            eval0=`sed -n 1p $CIRCUIT_DIR/$circuit | awk '{ print $3 }'`
+            eval1=`sed -n 2p $CIRCUIT_DIR/$circuit | awk '{ print $3 }'`
 
-	    cat << EOF > script.py
+            cat << EOF > script.py
 try:
-    print('$point'.split('-')[1])
+    print('$point'.split('-')[0])
 except:
     print('2')
 EOF
-	    base=`python script.py`
-	    rm script.py
+            base=`python script.py`
+            rm script.py
 
             # obfuscate
             $BIN obf \
                  --load $CIRCUIT_DIR/$circuit \
                  --secparam $secparam \
+                 --base $base \
                  --mmap $mmap \
                  --nthreads $nthreads \
                  --verbose 2> $dir/obf-time.log
+            cat $dir/obf-time.log
             # get size of obfuscation
             du --bytes $CIRCUIT_DIR/$obf/* > $dir/obf-size.log
             # evaluate
             $BIN obf \
                  --load-obf $CIRCUIT_DIR/$obf \
-                 --eval $eval \
+                 --eval $eval0 \
                  --mmap $mmap \
-		         --base $base \
+                 --base $base \
                  --verbose 2> $dir/eval-time.log
+            cat $dir/eval-time.log
+            # extra evaluation for checking correctness
+            $BIN obf \
+                 --load-obf $CIRCUIT_DIR/$obf \
+                 --eval $eval1 \
+                 --mmap $mmap \
+                 --base $base \
+                 --verbose
+            # output results to STDOUT
             $DIR/extract-all.py $dir
             # cleanup
             rm -rf $CIRCUIT_DIR/$circuit.obf.$secparam
