@@ -20,14 +20,17 @@ base=$3
 length=$4
 N=8
 
+DIR="."
+export LD_LIBRARY_PATH='../build/lib'
+
 mkdir -p public
 mkdir -p private
 mkdir -p database
-cp mbps/ore-$base-$length.json public/template.json
+cp $DIR/mbps/ore-$base-$length.json $DIR/public/template.json
 
 echo "* Key Generation"
 time ../build/bin/keygen -s $lambda -n $N $mmap
 echo "* Encrypt"
-time ./ore_encrypt -i 1 $mmap $base $length 5
+time $DIR/ore_encrypt -i 1 $mmap $base $length 5
 echo "* Evaluate"
 time ../build/bin/eval $mmap '{"a":"1","b":"1"}'
