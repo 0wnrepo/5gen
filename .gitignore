@@ -1,2 +1,12 @@
 build
 *.pyc
+clt13
+gghlite-flint
+libaesrand
+libmmap
+mife
+obfuscation
+obf-experiments/results
+mife-experiments/database
+mife-experiments/private
+mife-experiments/public
