@@ -26,9 +26,11 @@ if [ "$5" == "0" ]; then
     echo "Disabling parallelism"
     parallel='0'
     pflag='-s'
+    ncores='--ncores 1'
 else
     parallel='1'
     pflag=''
+    ncores=''
 fi
 
 DIR="."
@@ -40,7 +42,7 @@ mkdir -p database
 cp $DIR/mbps/3dnf-$base-$length.json $DIR/public/template.json
 
 echo "* Key Generation"
-time ../build/bin/keygen -s $lambda -n $N $mmap
+time ../build/bin/keygen $ncores -s $lambda -n $N $mmap
 echo "* Encrypt"
 time $DIR/3dnf_encrypt -i 1 $mmap $base $length 5 $parallel
 echo "* Evaluate"
