@@ -2,7 +2,7 @@
 
 """
 To use this tool, run:
-./3dnf_encrypt -i 1 4 8 42
+./3dnf_encrypt -i 1 4 8 42 <parallel>
 This will encrypt the number 42, using base 4 and length 8. Make sure that the flags are set before
 the encrypted message.
 """
@@ -10,10 +10,11 @@ the encrypted message.
 from subprocess import call
 import math, sys, os
 
-num = int(sys.argv[-1])
+parallel = int(sys.argv[-1])
+num = int(sys.argv[-2])
 
-base = int(sys.argv[-3])
-bitstr_len = int(sys.argv[-2])
+base = int(sys.argv[-4])
+bitstr_len = int(sys.argv[-3])
 
 def digit_to_char(digit):
     if digit < 10:
@@ -66,7 +67,10 @@ arr = map(lambda elem: digit_dary_repr(elem, base), arr)
 arr = str(arr).replace('\'','"')
 
 cmd = sys.argv[:]
+del cmd[-1]
 cmd[0] = '../build/bin/encrypt'
+if not parallel:
+    cmd[0] = cmd[0] + ' -s'
 cmd[-1] = '\'' + str(arr) + '\''
 del cmd[-3]
 del cmd[-2]
