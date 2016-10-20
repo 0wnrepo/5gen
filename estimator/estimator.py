@@ -207,19 +207,19 @@ def gen_latex_ggh_clt_encodings(λ, lst):
 
 def paper():
     # Figure 5.1
-    gen_latex_ggh_clt_encodings(80, range(2, 31))
     gen_latex_ggh_clt_encodings(40, range(2, 31))
+    gen_latex_ggh_clt_encodings(80, range(2, 31))
     # Figure 6.1
-    gen_latex_degree_optimizations(10 ** 12, 80, range(2, 26))
-    gen_latex_degree_optimizations(10 ** 10, 80, range(2, 26))
-    gen_latex_degree_optimizations(10 ** 12, 40, range(2, 26))
     gen_latex_degree_optimizations(10 ** 10, 40, range(2, 26))
+    gen_latex_degree_optimizations(10 ** 12, 40, range(2, 26))
+    gen_latex_degree_optimizations(10 ** 10, 80, range(2, 26))
+    gen_latex_degree_optimizations(10 ** 12, 80, range(2, 26))
     # Figure 6.2
     gen_latex_compare_schemes(range(8,14), 80)
     # Figure 7.1
-    gen_latex_degree_optimizations_obf(2 ** 80, 80)
-    gen_latex_degree_optimizations_obf(2 ** 80, 40)
     gen_latex_degree_optimizations_obf(2 ** 40, 40)
+    gen_latex_degree_optimizations_obf(2 ** 80, 40)
+    gen_latex_degree_optimizations_obf(2 ** 80, 80)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
