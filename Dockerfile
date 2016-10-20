@@ -29,15 +29,14 @@ WORKDIR /inst
 RUN git clone https://github.com/5GenCrypto/5gen.git
 
 WORKDIR /inst/5gen
-RUN git pull origin master
-
-RUN ./build-ccs.sh
+CMD git pull origin master
+CMD ./build-ccs.sh
 # Run obfuscation experiments
-RUN ./obf-experiments/point.sh GGH 40 9-13 0
-RUN ./obf-experiments/point.sh CLT 40 6-16 0
-RUN ./obf-experiments/point.sh GGH 40 6-31 0
-RUN ./obf-experiments/point.sh CLT 40 7-29 0
-RUN ./obf-experiments/point.sh CLT 80 8-27 0
+CMD ./obf-experiments/point.sh GGH 40 9-13 0
+CMD ./obf-experiments/point.sh CLT 40 6-16 0
+CMD ./obf-experiments/point.sh GGH 40 6-31 0
+CMD ./obf-experiments/point.sh CLT 40 7-29 0
+CMD ./obf-experiments/point.sh CLT 80 8-27 0
 # Run ORE experiments
 
 # Run 3DNF experiments
