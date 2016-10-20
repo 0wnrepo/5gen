@@ -9,7 +9,7 @@ echo "libaesrand"
     if [ ! -d $path ]; then
         git clone $url;
     fi
-    cd $path; git pull origin master; git checkout e1448c7; cd ..;
+    cd $path; git pull origin master; git checkout c3b5077; cd ..;
 
 echo "clt13"
 	path=clt13
@@ -17,7 +17,7 @@ echo "clt13"
     if [ ! -d $path ]; then
         git clone $url;
     fi
-    cd $path; git pull origin master; git checkout b4381d7; cd ..;
+    cd $path; git pull origin master; git checkout cfa5bda; cd ..;
 
 echo "gghlite-flint"
 	path=gghlite-flint
@@ -25,7 +25,7 @@ echo "gghlite-flint"
     if [ ! -d $path ]; then
         git clone $url;
     fi
-    cd $path; git pull origin master; git checkout b533968; cd ..;
+    cd $path; git pull origin master; git checkout 77ec8a0; cd ..;
 
 echo "obfuscation"
 	path=obfuscation
@@ -33,7 +33,7 @@ echo "obfuscation"
     if [ ! -d $path ]; then
         git clone $url;
     fi
-    cd $path; git pull origin master; git checkout 2da26c8; cd ..;
+    cd $path; git pull origin master; git checkout 1b1429b; cd ..;
 
 echo "libmmap"
 	path=libmmap
@@ -41,7 +41,7 @@ echo "libmmap"
     if [ ! -d $path ]; then
         git clone $url;
     fi
-    cd $path; git pull origin master; git checkout 1d9571e; cd ..;
+    cd $path; git pull origin master; git checkout ee8c6aa; cd ..;
 
 echo "mife"
 	path=mife
@@ -49,7 +49,7 @@ echo "mife"
     if [ ! -d $path ]; then
         git clone $url;
     fi
-    cd $path; git pull origin master; git checkout d7b6fb9; cd ..;
+    cd $path; git pull origin master; git checkout 20bdf70; cd ..;
 
 mkdir -p build
 builddir=$(readlink -f build)
