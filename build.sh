@@ -3,9 +3,11 @@
 #abort if any command fails
 set -e
 
+debugflag='--enable-debug'
+
 echo "libaesrand"
-	path=libaesrand
-	url=https://github.com/5GenCrypto/libaesrand.git
+    path=libaesrand
+    url=https://github.com/5GenCrypto/libaesrand.git
     if [ ! -d $path ]; then
         git clone $url;
     else
@@ -13,8 +15,8 @@ echo "libaesrand"
     fi
 
 echo "clt13"
-	path=clt13
-	url=https://github.com/5GenCrypto/clt13.git
+    path=clt13
+    url=https://github.com/5GenCrypto/clt13.git
     if [ ! -d $path ]; then
         git clone $url;
     else
@@ -22,8 +24,8 @@ echo "clt13"
     fi
 
 echo "gghlite-flint"
-	path=gghlite-flint
-	url=https://github.com/5GenCrypto/gghlite-flint.git
+    path=gghlite-flint
+    url=https://github.com/5GenCrypto/gghlite-flint.git
     if [ ! -d $path ]; then
         git clone $url;
     else
@@ -31,8 +33,8 @@ echo "gghlite-flint"
     fi
 
 echo "obfuscation"
-	path=obfuscation
-	url=https://github.com/5GenCrypto/obfuscation.git
+    path=obfuscation
+    url=https://github.com/5GenCrypto/obfuscation.git
     if [ ! -d $path ]; then
         git clone $url;
     else
@@ -40,8 +42,8 @@ echo "obfuscation"
     fi
 
 echo "libmmap"
-	path=libmmap
-	url=https://github.com/5GenCrypto/libmmap
+    path=libmmap
+    url=https://github.com/5GenCrypto/libmmap
     if [ ! -d $path ]; then
         git clone $url;
     else
@@ -49,8 +51,8 @@ echo "libmmap"
     fi
 
 echo "mife"
-	path=mife
-	url=https://github.com/5GenCrypto/mife
+    path=mife
+    url=https://github.com/5GenCrypto/mife
     if [ ! -d $path ]; then
         git clone $url;
     else
@@ -69,8 +71,9 @@ echo builddir = $builddir
 echo building libaesrand
 cd libaesrand
     autoreconf -i
-    ./configure --prefix=$builddir
-    make
+    ./configure --prefix=$builddir $debugflag
+    make -j
+    make check
     make install
 cd ..
 
@@ -78,24 +81,27 @@ echo building clt13
 cd clt13
     mkdir -p build/autoconf
     autoreconf -i
-    ./configure --prefix=$builddir
-    make
+    ./configure --prefix=$builddir $debugflag
+    make -j
+    make check
     make install
 cd ..
 
 echo building gghlite-flint
 cd gghlite-flint
     autoreconf -i
-    ./configure --prefix=$builddir
+    ./configure --prefix=$builddir $debugflag
     make -j
+    make check
     make install
 cd ..
 
 echo building libmmap
 cd libmmap
     autoreconf -i
-    ./configure --prefix=$builddir
-    make
+    ./configure --prefix=$builddir $debugflag
+    make -j
+    make check
     make install
 cd ..
 
@@ -105,17 +111,17 @@ cd mife
     git submodule update
     mkdir -p build/autoconf
     autoreconf -i
-    ./configure --prefix=$builddir
+    ./configure --prefix=$builddir $debugflag
     sed '/all:/i install:' mife/jsmn/Makefile > tmp-jsmn-makefile
     mv tmp-jsmn-makefile mife/jsmn/Makefile
-    make
+    make -j
     make install
 cd ..
 
 echo building obfuscation
 cd obfuscation
     autoreconf -i
-    ./configure --prefix=$builddir
+    ./configure --prefix=$builddir $debugflag
     make
     make install
     export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$builddir/lib"
