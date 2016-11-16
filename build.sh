@@ -3,7 +3,12 @@
 #abort if any command fails
 set -e
 
-debugflag='--enable-debug'
+if [ "$1" == "debug" ]; then
+    echo "DEBUG mode"
+    debugflag='--enable-debug'
+else
+    debugflag=''
+fi
 
 echo "libaesrand"
     path=libaesrand
