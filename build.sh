@@ -5,6 +5,9 @@ set -e
 if [ "$1" == "debug" ]; then
     echo "DEBUG mode"
     debugflag='--enable-debug'
+elif [ "$1" == "clean" ]; then
+    rm -rf build libaesrand clt13 gghlite libmmap mife obfuscation
+    exit 0
 else
     debugflag=''
 fi
