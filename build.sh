@@ -8,6 +8,14 @@ if [ "$1" == "debug" ]; then
 elif [ "$1" == "clean" ]; then
     rm -rf build libaesrand clt13 gghlite libmmap mife obfuscation
     exit 0
+elif [ "$1" == "paper" ]; then
+    # Commits used for producing numbers in https://eprint.iacr.org/2016/619
+    libaesrand=c3b5077
+    clt13=cfa5bda
+    gghlite=77ec8a0
+    libmmap=ee8c6aa
+    obfuscation=1b1429b
+    mife=20bdf70
 else
     debugflag=''
 fi
@@ -47,12 +55,12 @@ build () {
     popd
 }
 
-pull libaesrand  https://github.com/5GenCrypto/libaesrand    master
-pull clt13       https://github.com/5GenCrypto/clt13         master
-pull gghlite     https://github.com/5GenCrypto/gghlite-flint master
-pull libmmap     https://github.com/5GenCrypto/libmmap       master
-pull mife        https://github.com/5GenCrypto/mife          master
-pull obfuscation https://github.com/5GenCrypto/obfuscation   master
+pull libaesrand  https://github.com/5GenCrypto/libaesrand    master $libaesrand
+pull clt13       https://github.com/5GenCrypto/clt13         master $clt13
+pull gghlite     https://github.com/5GenCrypto/gghlite-flint master $gghlite
+pull libmmap     https://github.com/5GenCrypto/libmmap       master $libmmap
+pull mife        https://github.com/5GenCrypto/mife          master $mife
+pull obfuscation https://github.com/5GenCrypto/obfuscation   master $obfuscation
 
 build libaesrand
 build clt13
