@@ -16,6 +16,16 @@ elif [ "$1" == "paper" ]; then
     libmmap=ee8c6aa
     obfuscation=1b1429b
     mife=20bdf70
+elif [ "$1" == "help" ]; then
+    echo "$0: 5Gen build script"
+    echo ""
+    echo "Commands:"
+    echo "  <default>  Build everything"
+    echo "  debug      Build in debug mode"
+    echo "  clean      Remove build"
+    echo "  paper      Build using commits used to reproduce results in ePrint version"
+    echo "  help       Print this info and exit"
+    exit 0
 else
     debugflag=''
 fi
