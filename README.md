@@ -23,11 +23,11 @@ source setup.sh
 
 Run the following to build all the libraries needed using docker:
 ```
-docker build -t mbpobf .
+docker build -t 5gen .
 ```
 You can then enter the docker container using:
 ```
-docker run -it mbpobf /bin/bash
+docker run -it 5gen /bin/bash
 ```
 Now, within the docker container, follow the instructions in the "Install locally" section above.
 
