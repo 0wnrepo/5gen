@@ -3,7 +3,7 @@
 Repository for building and running applications of multilinear maps, which 
 include multi-input functional encryption (MIFE) and obfuscation.
 
-## Instructions
+## Installation
 
 ### Install locally
 
@@ -31,9 +31,11 @@ docker run -it 5gen /bin/bash
 ```
 Now, within the docker container, follow the instructions in the "Install locally" section above.
 
+## Usage
+
 ### Matrix branching program generation
 
-To specify a function for either MIFE or obfuscation, we rely on cryfsm 
+To specify a function for either MIFE or obfuscation, we rely on `cryfsm` 
 (https://github.com/5GenCrypto/cryfsm) to convert the function specification (in 
 Cryptol) into a matrix branching program (as a `.json` file).
 
