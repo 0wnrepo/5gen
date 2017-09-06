@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -ex
+set -e
 
 if [ "$1" == "debug" ]; then
     echo "DEBUG mode"
@@ -27,12 +27,12 @@ elif [ "$1" == "help" ]; then
     echo "  help       Print this info and exit"
     exit 0
 else
-    debugflag=''
+    debugflag=""
 fi
 
 mkdir -p build
 builddir=$(readlink -f build)
-echo builddir = $builddir
+echo builddir = "$builddir"
 
 export CPPFLAGS=-I$builddir/include
 export CFLAGS=-I$builddir/include
@@ -42,26 +42,28 @@ pull () {
     path=$1
     url=$2
     branch=$3
-    if [ ! -d $path ]; then
-        git clone $url $path
+    if [ ! -d "$path" ]; then
+        git clone "$url" "$path"
     fi
-    pushd $path
-        git pull origin $branch
-        if [ "$4" != "" ]; then
-            git checkout $4
-        fi
+    pushd "$path"
+    git pull origin "$branch"
+    if [ x"$4" != x"" ]; then
+        git checkout "$4"
+    fi
     popd
 }
 
 build () {
     path=$1
-    pushd $path
-        mkdir -p build/autoconf
+    pushd "$path"
+    mkdir -p build/autoconf
+    if [ ! -e configure ]; then
         autoreconf -i
-        ./configure --prefix=$builddir $debugflag
-        make -j
-        # make check
-        make install
+    fi
+    ./configure --prefix="$builddir" $debugflag
+    make -j8
+    # make check
+    make install
     popd
 }
 
@@ -80,31 +82,31 @@ pushd mife
     git submodule init
     git submodule update
     mkdir -p build/autoconf
-    autoreconf -i
-    ./configure --prefix=$builddir $debugflag
+    if [ ! -e configure ]; then autoreconf -i; fi
+    ./configure --prefix="$builddir" $debugflag
     sed '/all:/i install:' mife/jsmn/Makefile > tmp-jsmn-makefile
     mv tmp-jsmn-makefile mife/jsmn/Makefile
-    make -j
+    make -j8
     make install
 popd
 pushd obfuscation
     mkdir -p build/autoconf
-    autoreconf -i
-    ./configure --prefix=$builddir $debugflag
-    make -j
+    if [ ! -e configure ]; then autoreconf -i; fi
+    ./configure --prefix="$builddir" $debugflag
+    make -j8
     make install
     export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$builddir/lib"
     export PYTHONPATH="$builddir/lib/python2.7/site-packages:$builddir/lib64/python2.7/site-packages"
     python2 setup.py test
-    mkdir -p $builddir/lib/python2.7/site-packages
-    mkdir -p $builddir/lib64/python2.7/site-packages
-    python2 setup.py install --prefix=$builddir
+    mkdir -p "$builddir/lib/python2.7/site-packages"
+    mkdir -p "$builddir/lib64/python2.7/site-packages"
+    python2 setup.py install --prefix="$builddir"
 popd
 
-cat << EOF > $builddir/bin/run-obfuscator
+cat << EOF > "$builddir/bin/run-obfuscator"
 #!/usr/bin/env bash
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$builddir/lib"
 export PYTHONPATH="$builddir/lib/python2.7/site-packages:$builddir/lib64/python2.7/site-packages"
 $builddir/bin/obfuscator "\$@"
 EOF
-chmod 755 $builddir/bin/run-obfuscator
+chmod 755 "$builddir/bin/run-obfuscator"
